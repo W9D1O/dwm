@@ -23,8 +23,8 @@ static const int showsystray = 1; // 0 means no systray
 static const int showbar = 1; // 0 means no bar
 static const int topbar = 1;  // 0 means bottom bar
 
-static const char *fonts[] = {"JetBrains Mono Nerd Font:size=11"}; // fonts
-static const char dmenufont[] = "JetBrains Mono:size=11";          // dmenu font
+static const char *fonts[] = {"JetBrains Mono Nerd Font:size=14"}; // fonts
+static const char dmenufont[] = "JetBrains Mono:size=14";          // dmenu font
 
 // colors
 static const char col_gray1[] = "#222222";
@@ -101,6 +101,11 @@ static const char window_border[] = "#000000";
 
 // colors
 static const char *colors[][3] = {
+
+    // Tema Gruvbox
+    {gruvbox.inactive, gruvbox.bg, window_border},
+    {gruvbox.active, gruvbox.focus, gruvbox.focus},
+
     // fg                 bg             border
     // Tema Material
     {material.inactive, material.bg, window_border},
@@ -121,10 +126,6 @@ static const char *colors[][3] = {
     // Tema Onedark
     {onedark.inactive, onedark.bg, window_border},
     {onedark.active, onedark.focus, onedark.focus},
-
-    // Tema Gruvbox
-    {gruvbox.inactive, gruvbox.bg, window_border},
-    {gruvbox.active, gruvbox.focus, gruvbox.focus},
 
     // Tema Solarized Dark
     {solarized_dark.inactive, solarized_dark.bg, window_border},
@@ -205,7 +206,7 @@ static const Key keys[] = {
     {MODKEY, XK_d, spawn, SHCMD("dmenu_run")},
     {MODKEY, XK_r, spawn, SHCMD("dmenu_run_desktop -c -l 10")},
     {MODKEY, XK_Return, spawn, SHCMD("st")},
-    {MODKEY, XK_g, spawn, SHCMD("chromium")},
+    {MODKEY, XK_g, spawn, SHCMD("brave-browser")},
 
     /* volume control */
     {0, XF86XK_AudioRaiseVolume, spawn,
@@ -216,7 +217,7 @@ static const Key keys[] = {
      SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")}, // mute
     {0, XK_Print, spawn, SHCMD("flameshot screen")},      // screenshot
 
-    {MODKEY, XK_e, spawn, SHCMD("pcmanfm")}, // file explorer
+    {MODKEY, XK_e, spawn, SHCMD("thunar")}, // file explorer
 
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_j, focusstack, {.i = +1}},
